@@ -1,0 +1,17 @@
+<resources>
+    <string name="select_mode">Please, select util mode, audio device type, UDP port and password:</string>
+    <string name="description_text">Description:</string>
+    <string name="select_descr_server">1) In \"Server mode\" util capture audio stream from audio device and sending it to the client</string>
+    <string name="select_descr_client">2) In \"Client mode\" util received audio stream from the server and play it on selected audio device</string>
+    <string name="audio_device_descr">3) Choose audio device type for capture\\receive stream (Input devices like microphones or Output devices like speakers\\headphones)</string>
+    <string name="udp_port_descr">4) Select UDP port for streaming</string>
+    <string name="password_descr">5) Input password if it needed</string>
+    <string name="client_mode">Client mode</string>
+    <string name="server_mode">Server mode</string>
+    <string name="audio_device_type">Audio device type</string>
+    <string name="input_audio_device">Input audio</string>
+    <string name="output_audio_device">Output audio</string>
+    <string name="udp_port_text">Select UDP port:</string>
+    <string name="udp_port_text_descr">UDP port</string>
+    <string name="password_hint">Input password</string>
+</resources>
