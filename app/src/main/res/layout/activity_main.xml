@@ -42,7 +42,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleSelect" />
 
-    <androidx.appcompat.widget.SwitchCompat
+    <Switch
         android:id="@+id/switchAudioDevice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,6 +50,7 @@
         android:height="48sp"
         android:showText="true"
         android:text="@string/audio_device_type"
+        android:textAlignment="center"
         android:textAllCaps="false"
         android:textOff="@string/input_audio_device"
         android:textOn="@string/output_audio_device"
@@ -58,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonClientMode" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/udpPortNumber"
         android:layout_width="120sp"
         android:layout_height="48sp"
         android:height="48sp"
@@ -77,7 +78,7 @@
         android:layout_height="wrap_content"
         android:text="@string/udp_port_descr"
         android:textAlignment="gravity"
-        android:textSize="12sp"
+        android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@+id/passwordDescr"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -87,7 +88,7 @@
         android:layout_height="wrap_content"
         android:text="@string/audio_device_descr"
         android:textAlignment="gravity"
-        android:textSize="12sp"
+        android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@+id/udpDescrText"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -97,7 +98,7 @@
         android:layout_height="wrap_content"
         android:text="@string/select_descr_client"
         android:textAlignment="gravity"
-        android:textSize="12sp"
+        android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@+id/audioDescrText"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -107,7 +108,7 @@
         android:layout_height="wrap_content"
         android:text="@string/select_descr_server"
         android:textAlignment="gravity"
-        android:textSize="12sp"
+        android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@+id/clientModeDescrText"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -116,7 +117,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/description_text"
-        android:textSize="12sp"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/serverDescrText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -125,15 +127,15 @@
         android:id="@+id/udpPortDescrText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
         android:text="@string/udp_port_text"
+        android:textAlignment="center"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switchAudioDevice" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/editTextPassword"
         android:layout_width="wrap_content"
         android:layout_height="48sp"
         android:autofillHints=""
@@ -143,14 +145,15 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/udpPortNumber" />
 
     <TextView
         android:id="@+id/passwordDescr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/password_descr"
-        android:textSize="12sp"
+        android:textAlignment="gravity"
+        android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

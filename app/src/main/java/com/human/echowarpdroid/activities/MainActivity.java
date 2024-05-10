@@ -1,9 +1,13 @@
 package com.human.echowarpdroid.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioDeviceInfo;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,9 +16,15 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.human.echowarpdroid.DefaultValues;
+import com.human.echowarpdroid.common.PreSettings;
 import com.human.echowarpdroid.R;
+import com.human.echowarpdroid.activitiesvars.ActivitiesVars;
+import com.human.echowarpdroid.interfaces.FillIntentInterface;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Arrays;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements FillIntentInterface {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,18 +32,22 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        EditText numberInput = findViewById(R.id.editTextNumber);
+        EditText numberInput = findViewById(R.id.udpPortNumber);
         numberInput.setText(String.valueOf(DefaultValues.defaultUDPPort));
 
         Button buttonClientMode = findViewById(R.id.buttonClientMode);
         buttonClientMode.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, ClientActivity.class);
+
+            fillIntentWithPreSettings(intent, false);
             startActivity(intent);
         });
 
         Button buttonServerMode = findViewById(R.id.buttonServerMode);
         buttonServerMode.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, ServerActivity.class);
+
+            fillIntentWithPreSettings(intent, true);
             startActivity(intent);
         });
 
@@ -42,5 +56,33 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    @Override
+    public void fillIntentWithSettings(Intent intent, PreSettings preSettings) {
+    }
+
+    public void fillIntentWithPreSettings(Intent intent, boolean isServer) {
+        Switch switchAudioDevice = findViewById(R.id.switchAudioDevice);
+        boolean isInputDevice = switchAudioDevice.isChecked();
+
+        EditText udpPortNumber = findViewById(R.id.udpPortNumber);
+        int udpPort = Integer.parseInt(udpPortNumber.getText().toString());
+
+        EditText editTextPassword = findViewById(R.id.editTextPassword);
+        String password = editTextPassword.getText().toString();
+
+        if (password.trim().isEmpty()) password = null;
+
+        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        AudioDeviceInfo[] devices = audioManager.getDevices(
+                isInputDevice ? AudioManager.GET_DEVICES_INPUTS : AudioManager.GET_DEVICES_OUTPUTS
+        );
+
+        List<AudioDeviceInfo> audioDevices = Arrays.asList(devices);
+
+        intent.putExtra(
+                ActivitiesVars.PRE_SETTINGS_OBJECT,
+                new PreSettings(isServer, isInputDevice, udpPort, password, audioDevices));
     }
 }

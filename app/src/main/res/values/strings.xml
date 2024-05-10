@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">EchoWarpDroid</string>
+    <string name="description_text">Instruction:</string>
+    <string name="select_audio_device_descr">Please, select audio device:</string>
+    <string name="client_mode">Client mode</string>
+    <string name="server_mode">Server mode</string>
 </resources>

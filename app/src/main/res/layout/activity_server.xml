@@ -7,4 +7,185 @@
     android:layout_height="match_parent"
     tools:context=".activities.ServerActivity">
 
+    <Spinner
+        android:id="@+id/audioDeviceSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/audioDeviceTextDescr" />
+
+    <TextView
+        android:id="@+id/audioDeviceTextDescr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/select_audio_device_descr"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/serverModeText" />
+
+    <TextView
+        android:id="@+id/serverModeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/server_mode"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/heartbeatField"
+        android:layout_width="wrap_content"
+        android:layout_height="48sp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/heartbeat_field_hint"
+        android:inputType="number"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heartbeat_text_descr" />
+
+    <TextView
+        android:id="@+id/heartbeat_text_descr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/heartbeat_text_descr"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/audioDeviceSpinner" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/sslSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="48sp"
+        android:text="@string/ssl_text"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heartbeatField" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/IntegrityControlSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="48sp"
+        android:text="@string/integrity_control_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sslSwitch" />
+
+    <EditText
+        android:id="@+id/workersCountField"
+        android:layout_width="wrap_content"
+        android:layout_height="48sp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/workers_text_hint"
+        android:inputType="number"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/workersCountTextDescr" />
+
+    <TextView
+        android:id="@+id/workersCountTextDescr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/workers_text_descr"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IntegrityControlSwitch" />
+
+    <Button
+        android:id="@+id/startStreamingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/start_streaming"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/workersCountField" />
+
+    <TextView
+        android:id="@+id/serverDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description_text"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/audioDeviceDescr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/audioDeviceDescr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_descr_streaming_audio_device_descr"
+        android:textAlignment="gravity"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/heartbeatDescr"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/heartbeatDescr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/heartbeat_descr"
+        android:textAlignment="gravity"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/sslDescr"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/sslDescr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ssl_descr"
+        android:textAlignment="gravity"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/integrityDescr"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/integrityDescr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/integrity_descr"
+        android:textAlignment="gravity"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/workersCountDescr"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/workersCountDescr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/workers_count_descr"
+        android:textAlignment="gravity"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/strartStreamingButtonDescr"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/strartStreamingButtonDescr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_streaming_button_descr"
+        android:textAlignment="gravity"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
