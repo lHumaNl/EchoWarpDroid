@@ -18,7 +18,7 @@ public class Settings extends PreSettings {
         this.audioDeviceInfo = audioDeviceInfo;
         this.serverAddress = serverAddress;
         serverWorkersCount = null;
-        cryptoManager = new CryptoManager(isServer);
+        cryptoManager = new CryptoManager(isServer, null, null);
     }
 
     public Settings(boolean isServer, boolean isInputAudioDevice, int udpPort, String password,
@@ -31,7 +31,7 @@ public class Settings extends PreSettings {
         this.isIntegrityControl = isIntegrityControl;
         this.serverWorkersCount = serverWorkersCount;
         serverAddress = null;
-        cryptoManager = new CryptoManager(isServer);
+        cryptoManager = new CryptoManager(isServer, isIntegrityControl, isSSL);
     }
 
     public AudioDeviceInfo getAudioDeviceInfo() {

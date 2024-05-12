@@ -51,7 +51,7 @@ public class ServerActivity extends AppCompatActivity implements FillIntentInter
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        Button startStreamingButton = findViewById(R.id.startStreamingButton);
+        Button startStreamingButton = findViewById(R.id.startStreaming);
         startStreamingButton.setOnClickListener(v -> {
             Intent streamingIntent = new Intent(ServerActivity.this, StreamingActivity.class);
 

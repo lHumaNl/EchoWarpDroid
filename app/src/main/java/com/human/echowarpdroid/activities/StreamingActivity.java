@@ -12,7 +12,10 @@ import com.human.echowarpdroid.R;
 import com.human.echowarpdroid.activitiesvars.ActivitiesVars;
 import com.human.echowarpdroid.common.Settings;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public class StreamingActivity extends AppCompatActivity {
+    private final AtomicBoolean stopStreamEvent = new AtomicBoolean(false);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,8 @@ public class StreamingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_streaming);
 
         Settings settings = (Settings) getIntent().getSerializableExtra(ActivitiesVars.SETTINGS_OBJECT);
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

@@ -51,7 +51,7 @@ public class ClientActivity extends AppCompatActivity implements FillIntentInter
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        Button startReceivingButton = findViewById(R.id.startReceivingButton);
+        Button startReceivingButton = findViewById(R.id.startStreaming);
         startReceivingButton.setOnClickListener(v -> {
             Intent streamingIntent = new Intent(ClientActivity.this, StreamingActivity.class);
 

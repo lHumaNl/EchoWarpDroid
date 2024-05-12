@@ -4,13 +4,13 @@
     <string name="select_descr_streaming_audio_device_descr">1) Select audio device for streaming</string>
     <string name="heartbeat_descr">2) Input reconnect attempts (0 = infinite)</string>
     <string name="ssl_descr">3) Enable\\Disable SSL (AES encryption)</string>
-    <string name="integrity_descr">4) Enable\\Disable integrity control (SHA-1 hash control)</string>
+    <string name="integrity_descr">4) Enable\\Disable integrity control (SHA-256 hash control)</string>
     <string name="workers_count_descr">5) Input worker thread for streaming audio</string>
     <string name="start_streaming_button_descr">6) Press button \"Start streaming audio\" for streaming audio to client</string>
     <string name="heartbeat_text_descr">Input reconnect attempts\n(0 = infinite):</string>
     <string name="heartbeat_field_hint">Reconnect attempts</string>
     <string name="ssl_text">Enable SSL (AES encryption)</string>
-    <string name="integrity_control_text">Enable integrity control (SHA-1 hash control)</string>
+    <string name="integrity_control_text">Enable integrity control (SHA-256 hash control)</string>
     <string name="workers_text_descr">Input workers count:</string>
     <string name="workers_text_hint">Workers count</string>
 </resources>
