@@ -48,20 +48,22 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:contentDescription="@string/save_profile_descr"
         android:src="@android:drawable/ic_menu_save"
+        android:contentDescription="@string/save_profile_descr"
         app:backgroundTint="@android:color/holo_blue_light"
-        app:layout_constraintBottom_toTopOf="@+id/serverDescription"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:maxImageSize="48sp" />
 
     <Spinner
         android:id="@+id/audioDeviceSpinner"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="48sp"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/audioDeviceTextDescr" />
+        app:layout_constraintHorizontal_bias="0.757"
+        app:layout_constraintStart_toEndOf="@+id/audioDeviceTextDescr"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <TextView
         android:id="@+id/audioDeviceTextDescr"
@@ -70,9 +72,11 @@
         android:text="@string/select_audio_device_descr"
         android:textAlignment="center"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/audioDeviceSpinner"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.036"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+        app:layout_constraintTop_toTopOf="@+id/audioDeviceSpinner" />
 
     <EditText
         android:id="@+id/heartbeatField"
@@ -97,26 +101,28 @@
         app:layout_constraintBottom_toBottomOf="@+id/heartbeatField"
         app:layout_constraintEnd_toStartOf="@+id/heartbeatField"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/heartbeatField" />
+        app:layout_constraintTop_toBottomOf="@+id/audioDeviceSpinner" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/sslSwitch"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="48sp"
         android:text="@string/ssl_text"
         android:textAlignment="textEnd"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/IntegrityControlSwitch"
+        app:layout_constraintEnd_toStartOf="@+id/IntegrityControlSwitch"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heartbeatField" />
+        app:layout_constraintTop_toTopOf="@+id/IntegrityControlSwitch" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/IntegrityControlSwitch"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="48sp"
         android:text="@string/integrity_control_text"
+        android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sslSwitch" />
+        app:layout_constraintStart_toEndOf="@+id/sslSwitch"
+        app:layout_constraintTop_toBottomOf="@+id/heartbeatField" />
 
     <EditText
         android:id="@+id/workersCountField"

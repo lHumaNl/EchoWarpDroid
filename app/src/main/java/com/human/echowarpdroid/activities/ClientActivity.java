@@ -1,7 +1,9 @@
 package com.human.echowarpdroid.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.AudioDeviceInfo;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -11,6 +13,7 @@ import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -19,12 +22,14 @@ import com.human.echowarpdroid.activitiesvars.ActivitiesVars;
 import com.human.echowarpdroid.adapters.AudioDeviceInfoAdapter;
 import com.human.echowarpdroid.common.PreSettings;
 import com.human.echowarpdroid.common.Settings;
+import com.human.echowarpdroid.interfaces.AudioManagerInterface;
 import com.human.echowarpdroid.interfaces.FillIntentInterface;
 import com.human.echowarpdroid.R;
 
+import java.util.Arrays;
 import java.util.Objects;
 
-public class ClientActivity extends AppCompatActivity implements FillIntentInterface {
+public class ClientActivity extends AppCompatActivity implements FillIntentInterface, AudioManagerInterface {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,19 +43,19 @@ public class ClientActivity extends AppCompatActivity implements FillIntentInter
         PreSettings preSettings = (PreSettings) intent.getSerializableExtra(ActivitiesVars.PRE_SETTINGS_OBJECT);
 
         Spinner audioDeviceSpinner = findViewById(R.id.audioDeviceSpinner);
-        ArrayAdapter<AudioDeviceInfo> audioDeviceInfoAdapter = new AudioDeviceInfoAdapter(
-                this,
-                R.layout.activity_client,
-                Objects.requireNonNull(preSettings).getAudioDevices()
-        );
+        audioDeviceSpinner.setAdapter(getAudioDeviceAdapter(preSettings));
 
-        audioDeviceSpinner.setAdapter(audioDeviceInfoAdapter);
+        Toolbar toolbar = findViewById(R.id.clientToolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         Button startReceivingButton = findViewById(R.id.startReceivingButton);
         startReceivingButton.setOnClickListener(v -> {
             Intent streamingIntent = new Intent(ClientActivity.this, StreamingActivity.class);
 
-            fillIntentWithSettings(streamingIntent, preSettings);
+            fillIntentWithSettings(streamingIntent, Objects.requireNonNull(preSettings));
             startActivity(streamingIntent);
         });
 
@@ -82,7 +87,6 @@ public class ClientActivity extends AppCompatActivity implements FillIntentInter
                 preSettings.isInputAudioDevice(),
                 preSettings.getUdpPort(),
                 preSettings.getPassword(),
-                preSettings.getAudioDevices(),
                 audioDeviceInfo,
                 serverAddress
         );
@@ -92,5 +96,21 @@ public class ClientActivity extends AppCompatActivity implements FillIntentInter
 
     @Override
     public void fillIntentWithPreSettings(Intent intent, boolean isServer) {
+    }
+
+    @Override
+    public ArrayAdapter<AudioDeviceInfo> getAudioDeviceAdapter(PreSettings preSettings) {
+        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        AudioDeviceInfo[] devices = audioManager.getDevices(
+                Objects.requireNonNull(preSettings).isInputAudioDevice() ?
+                        AudioManager.GET_DEVICES_INPUTS :
+                        AudioManager.GET_DEVICES_OUTPUTS
+        );
+
+        return new AudioDeviceInfoAdapter(
+                this,
+                R.layout.activity_client,
+                Arrays.asList(devices)
+        );
     }
 }

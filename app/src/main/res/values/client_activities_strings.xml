@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="start_receiving">Start receiving audio</string>
-    <string name="input_server_addr_hint">Input server address</string>
+    <string name="input_server_addr_text">Input server address\n(IP or DNS hostname):</string>
+    <string name="input_server_address_hint">Server address</string>
     <string name="select_descr_receiving_audio_device_descr">1) Select audio device for receiving audio stream</string>
     <string name="input_server_addr_descr">2) Input server address</string>
     <string name="start_receiving_button_descr">3) Press button \"Start receiving audio\" for receiving audio stream</string>

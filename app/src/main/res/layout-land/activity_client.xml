@@ -31,8 +31,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
                 android:layout_marginEnd="16dp"
-                android:src="@android:drawable/ic_menu_send"
                 android:contentDescription="@string/start_streaming_descr"
+                android:src="@android:drawable/ic_menu_send"
                 app:backgroundTint="@android:color/holo_green_light"
                 app:layout_constraintBottom_toTopOf="@+id/serverDescription"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -51,29 +51,30 @@
         android:contentDescription="@string/save_profile_descr"
         android:src="@android:drawable/ic_menu_save"
         app:backgroundTint="@android:color/holo_blue_light"
-        app:layout_constraintBottom_toTopOf="@+id/clientModeDescriptionText"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:maxImageSize="48sp" />
 
     <Spinner
         android:id="@+id/audioDeviceSpinner"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="48sp"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/audioDeviceTextDescr" />
+        app:layout_constraintStart_toEndOf="@+id/audioDeviceTextDescr"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <TextView
         android:id="@+id/audioDeviceTextDescr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/select_audio_device_descr"
-        android:textAlignment="center"
+        android:textAlignment="textEnd"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/audioDeviceSpinner"
+        app:layout_constraintEnd_toStartOf="@+id/audioDeviceSpinner"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+        app:layout_constraintTop_toTopOf="@+id/audioDeviceSpinner" />
 
     <TextView
         android:id="@+id/clientModeDescriptionText"
@@ -111,13 +112,14 @@
         android:id="@+id/serverAddrEditText"
         android:layout_width="0dp"
         android:layout_height="48sp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/input_server_address_hint"
         android:inputType="text"
         android:textAlignment="gravity"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/audioDeviceSpinner" />
 
     <TextView
@@ -131,7 +133,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/serverArrdessTextView"
+        android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/input_server_addr_text"

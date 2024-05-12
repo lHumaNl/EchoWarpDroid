@@ -2,10 +2,8 @@ package com.human.echowarpdroid.common;
 
 import android.media.AudioDeviceInfo;
 
-import java.io.Serializable;
-import java.util.List;
 
-public class Settings extends PreSettings implements Serializable {
+public class Settings extends PreSettings {
     private final AudioDeviceInfo audioDeviceInfo;
     private final String serverAddress;
     private Integer heartbeatAttempt;
@@ -15,9 +13,8 @@ public class Settings extends PreSettings implements Serializable {
     private final CryptoManager cryptoManager;
 
     public Settings(boolean isServer, boolean isInputAudioDevice, int udpPort, String password,
-                    List<AudioDeviceInfo> audioDevices, AudioDeviceInfo audioDeviceInfo,
-                    String serverAddress) {
-        super(isServer, isInputAudioDevice, udpPort, password, audioDevices);
+                    AudioDeviceInfo audioDeviceInfo, String serverAddress) {
+        super(isServer, isInputAudioDevice, udpPort, password);
         this.audioDeviceInfo = audioDeviceInfo;
         this.serverAddress = serverAddress;
         serverWorkersCount = null;
@@ -25,10 +22,9 @@ public class Settings extends PreSettings implements Serializable {
     }
 
     public Settings(boolean isServer, boolean isInputAudioDevice, int udpPort, String password,
-                    List<AudioDeviceInfo> audioDevices, AudioDeviceInfo audioDeviceInfo,
-                    Integer heartbeatAttempt, Boolean isSSL, Boolean isIntegrityControl,
-                    Integer serverWorkersCount) {
-        super(isServer, isInputAudioDevice, udpPort, password, audioDevices);
+                    AudioDeviceInfo audioDeviceInfo, Integer heartbeatAttempt, Boolean isSSL,
+                    Boolean isIntegrityControl, Integer serverWorkersCount) {
+        super(isServer, isInputAudioDevice, udpPort, password);
         this.audioDeviceInfo = audioDeviceInfo;
         this.heartbeatAttempt = heartbeatAttempt;
         this.isSSL = isSSL;
@@ -38,5 +34,31 @@ public class Settings extends PreSettings implements Serializable {
         cryptoManager = new CryptoManager(isServer);
     }
 
+    public AudioDeviceInfo getAudioDeviceInfo() {
+        return audioDeviceInfo;
+    }
 
+    public String getServerAddress() {
+        return serverAddress;
+    }
+
+    public Integer getHeartbeatAttempt() {
+        return heartbeatAttempt;
+    }
+
+    public Boolean getSSL() {
+        return isSSL;
+    }
+
+    public Boolean getIntegrityControl() {
+        return isIntegrityControl;
+    }
+
+    public Integer getServerWorkersCount() {
+        return serverWorkersCount;
+    }
+
+    public CryptoManager getCryptoManager() {
+        return cryptoManager;
+    }
 }

@@ -7,28 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
-    <Spinner
-        android:id="@+id/profileSpinner"
-        android:layout_width="0dp"
-        android:layout_height="48sp"
-        android:layout_marginStart="16dp"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/startFromProfileButton"
-        app:layout_constraintEnd_toStartOf="@+id/startFromProfileButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/startFromProfileButton" />
-
-    <Button
-        android:id="@+id/startFromProfileButton"
+    <TextView
+        android:id="@+id/inputPasswordTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/start_from_profile_button"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/descrTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/profileSpinner" />
+        android:text="@string/password_text"
+        android:textAlignment="textEnd"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextPassword"
+        app:layout_constraintEnd_toStartOf="@+id/editTextPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editTextPassword" />
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -71,7 +59,7 @@
         android:text="@string/client_mode"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonServerMode"
+        app:layout_constraintStart_toEndOf="@+id/switchAudioDevice"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <Button
@@ -80,7 +68,7 @@
         android:layout_height="wrap_content"
         android:text="@string/server_mode"
         android:textAllCaps="false"
-        app:layout_constraintEnd_toStartOf="@+id/buttonClientMode"
+        app:layout_constraintEnd_toStartOf="@+id/switchAudioDevice"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
@@ -91,13 +79,13 @@
         android:height="48sp"
         android:showText="true"
         android:text="@string/audio_device_type"
-        android:textAlignment="textEnd"
+        android:textAlignment="center"
         android:textAllCaps="false"
         android:textOff="@string/input_audio_device"
         android:textOn="@string/output_audio_device"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonClientMode" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <EditText
         android:id="@+id/udpPortNumber"
@@ -199,15 +187,27 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/inputPasswordTextView"
+    <Spinner
+        android:id="@+id/profileSpinner"
+        android:layout_width="0dp"
+        android:layout_height="48sp"
+        android:layout_marginStart="16dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/startFromProfileButton"
+        app:layout_constraintEnd_toStartOf="@+id/startFromProfileButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/startFromProfileButton" />
+
+    <Button
+        android:id="@+id/startFromProfileButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/password_text"
-        android:textAlignment="textEnd"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextPassword"
-        app:layout_constraintEnd_toStartOf="@+id/editTextPassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextPassword" />
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/start_from_profile_button"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/descrTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profileSpinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,6 @@
 package com.human.echowarpdroid.activities;
 
-import android.content.Context;
 import android.content.Intent;
-import android.media.AudioDeviceInfo;
-import android.media.AudioManager;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,8 +18,6 @@ import com.human.echowarpdroid.R;
 import com.human.echowarpdroid.activitiesvars.ActivitiesVars;
 import com.human.echowarpdroid.interfaces.FillIntentInterface;
 
-import java.util.Arrays;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements FillIntentInterface {
 
@@ -74,15 +69,8 @@ public class MainActivity extends AppCompatActivity implements FillIntentInterfa
 
         if (password.trim().isEmpty()) password = null;
 
-        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        AudioDeviceInfo[] devices = audioManager.getDevices(
-                isInputDevice ? AudioManager.GET_DEVICES_INPUTS : AudioManager.GET_DEVICES_OUTPUTS
-        );
-
-        List<AudioDeviceInfo> audioDevices = Arrays.asList(devices);
-
         intent.putExtra(
                 ActivitiesVars.PRE_SETTINGS_OBJECT,
-                new PreSettings(isServer, isInputDevice, udpPort, password, audioDevices));
+                new PreSettings(isServer, isInputDevice, udpPort, password));
     }
 }
